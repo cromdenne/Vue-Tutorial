@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vue Tutorial - Search</title>
+
+    <!-- CSS -->
+    <link rel="stylesheet" type="text/css" href="/css/search.css">
+
+  </head>
+  <body>
+
+    <!-- v-cloak hides any un-compiled data bindings until the Vue instance is ready. -->
+
+    <form id="main" v-cloak>
+
+      <div class="bar">
+        <!-- Create a binding between the searchString model and the text field. -->
+        <input type="text" v-model="searchString" placeholder="Enter your search terms" />
+      </div><!-- /.bar -->
+
+      <ul>
+        <!-- Render a li element for every entry in the computer filteredArticles array. -->
+        <li v-for="article in filteredArticles">
+          <a v-bind:href="article.url"><img v-bind:src="article.image" /></a>
+          <p>{{ article.title }}</p>
+        </li>
+      </ul>
+      
+    </form><!-- /#main -->
+
+    <!-- SCRIPTS -->
+    <script type="text/javascript" src="https://unpkg.com/vue/dist/vue.js"></script>
+    <script type="text/javascript" src="/js/search.js"></script>
+
+  </body>
+</html>
