@@ -35,17 +35,21 @@
         </div><!-- /#banner -->
 
         <div id="content" class="container-fluid chunk text-center">
-            <div class="row">
-                <button class="select hvr-bounce-to-top">Navigation</button>
-                <button class="select hvr-bounce-to-top">Editor</button>
-                <button class="select hvr-bounce-to-top">Order</button>
-                <button class="select hvr-bounce-to-top">Search</button>
-                <button class="select hvr-bounce-to-top">Layout</button>
-            </div><!-- /.row -->
+            <div id="buttons" class="row">
+                <button class="select hvr-bounce-to-top" v-on:click="makeActive('nav')">Navigation</button>
+                <button class="select hvr-bounce-to-top" v-on:click="makeActive('editor')">Editor</button>
+                <button class="select hvr-bounce-to-top" v-on:click="makeActive('order')">Order</button>
+                <button class="select hvr-bounce-to-top" v-on:click="makeActive('search')">Search</button>
+                <button class="select hvr-bounce-to-top" v-on:click="makeActive('layout')">Layout</button>
+            </div><!-- /#buttons -->
             <div id="stage" class="row">
-                
+                <iframe id="nav" src="nav.html" v-if="active === 'nav'" onload="resizeIframe(this)"></iframe>
+                <iframe id="editor" src="editor.html" v-if="active === 'editor'" onload="resizeIframe(this)"></iframe>
+                <iframe id="order" src="order.html" v-if="active === 'order'" onload="resizeIframe(this)"></iframe>
+                <iframe id="search" src="search.html" v-if="active === 'search'" onload="resizeIframe(this)"></iframe>
+                <iframe id="layout" src="layout.html" v-if="active === 'layout'" onload="resizeIframe(this)"></iframe>
             </div><!-- /#stage -->
-        </div><!-- /#stage -->
+        </div><!-- /#content -->
 
         <!-- Vue.js -->
         <script type="text/javascript" src="https://unpkg.com/vue@2.1.10/dist/vue.js"></script>
